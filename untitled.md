@@ -35,13 +35,41 @@ MacOSX環境變數的配置文檔有三個：
 nano ~/.bash_profile
 ```
 
-而環境變數的建立格式則如下，若有多個路徑則以冒號:進行連接，句尾需加上${PATH}，代表支援系統環境變數。
+而環境變數的建立格式則如下，若有多個路徑則以冒號:進行連接，句尾需加上$PATH，代表支援系統環境變數。
 
 ```text
-export PATH = path1:path2:path3:${PATH}
+export PATH = "path1:path2:path3:$PATH"
 ```
 
-若已編寫完畢後，按_command+O _即可儲存\(_command+C _為取消\)，並按 _command+X _退出。
+以Anaconda2的系統配置來說，指令應為：
 
-> Note：此時環境變數並不會立即生效，可退出Terminal後再另啟一個Terminal即會生效。或是輸入source 指令\(source + 環境變數文件\)，其中 source指令已可被稱為「點命令」，因此也可以以 . 作為代替\(如：. /etc/profile\)。
+```text
+export PATH="/anaconda3/bin:$PATH"
+```
+
+> Note：在檔案儲存後，環境變數並不會立即生效，可退出Terminal後再另啟一個Terminal即會生效。或是輸入source 指令\(source + 環境變數文件\)，其中 source指令已可被稱為「點命令」，因此也可以以 . 作為代替\(如：. /etc/profile\)。
+
+### 環境變數配置文檔的編緝方法
+
+以.bash\_profile為例，你可
+
+```text
+touch ~/.bash_profile; open ~/.bash_profile
+```
+
+以文字編輯器進行修改編輯，使用方式與平常修改檔案相同。
+
+```text
+nano ~/.bash_profile
+```
+
+以nano編輯器進行修改編輯，_ctrl+O_為儲存、_ctrl+C_為取消、ctrl+X為退出。
+
+```text
+vim ~/.bash_profile
+```
+
+以vim編輯器進行修改編輯，進入後是無法進行編輯的，需輸入`i, I, o, O, a, A, R`其中一個字母\(vim下會提示對應的操作動作\)，若要退回一般模式，按Esc即可。而在一般模式下，輸入`:/?`三個其中一個字母時，就可將游標移到最下面，並進入指令列命令模式，在此模式下可進行儲存/讀取檔案。這邊我們僅先知道`:wq`，其可強制儲存檔案並退出。
+
+
 
