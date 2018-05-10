@@ -49,7 +49,7 @@ export PATH="/anaconda3/bin:$PATH"
 
 > Note：在檔案儲存後，環境變數並不會立即生效，可退出Terminal後再另啟一個Terminal即會生效。或是輸入source 指令\(source + 環境變數文件\)，其中 source指令已可被稱為「點命令」，因此也可以以 . 作為代替\(如：. /etc/profile\)。
 
-### 環境變數配置文檔的編緝方法
+### 配置文檔的編緝方法
 
 以.bash\_profile為例，你可
 
