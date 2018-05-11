@@ -4,25 +4,55 @@
 
 Python3中的數值型態有三種：  
 1. 整數\(int\)  
+2. 布林\(boolean\)  
 2. 浮點數\(float\)  
-3. 複數\(complex\)  
-  
+3. 複數\(complex\)
+
+#### 整數
+
 在Python3中，整數並無分為整數與長整數，長度並無限制\(但在硬體限制內\)。整數的進位制整理如下
 
 ```
-$ give me super-powers
+//十進位，為預設進位
+10
+
+//二進制，每位數值由0或1組成
+0b1010 or bin(10)
+
+//八進制，每位數值由0~7組成
+0o12 or oct(10)
+
+//十六進制，每位數值由0~7 A~F組成
+oxa or hex(10)
 ```
 
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
+其中無論是十進制、二進制亦或是十六進制，型態都是int。  
+  
+除此之外，亦可使用字串來宣告整數，如下。
 
-Once you're strong enough, save the world:
+```text
+//十進位
+int('10')
 
+//二進制
+int('10',2)
+
+//八進制
+int('10',8)
+
+//十六進制
+int('10',16)
 ```
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
+
+#### 布林
+
+可用於表達True與False的數值，型態為bool，bool為int的子類別，0為False，1為True。在Python中，不是0就是True，所以空字串、空串列、None也都為False。
+
+#### 浮點數
+
+可用於表達有小數位的數值，型態為float。
+
+#### 複數
 
 
 
