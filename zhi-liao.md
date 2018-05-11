@@ -113,7 +113,7 @@ from decimal import Decimal
 print(Decimal('1.0')-Decimal('0.8'))
 ```
 
-#### \_\_repr\_\_ vs. \_\_str\_\_
+\_\_repr\_\_ vs. \_\_str\_\_
 
 在指令互動環境中，所使用的是repr\(\)函式來顯示運算結果，其採用正式\(official\)的顯示方式，是對於解釋器較好解讀的方式。而print\(\)函式則使用str\(\)函式來顯示較非正式\(unofficial\)的顯示方式，是對於使用者較好解讀的方式。  
   
