@@ -76,8 +76,47 @@ $ vi ~/.bash_profile
 3. `:q`： 離開  
 4. `:q!`：曾修改過檔案但不想儲存時，則以此退出。
 
+### 開發環境
+
+當安裝完Anaconda後，我們就可以來編寫Python囉~
+
+#### 互動式終端介面
+
+我們可以使用終端機開啟互動指令介面來編寫Python，如下圖可以看到若建置安裝完Anaconda後，就會出現Anaconda的字眼。
+
+```text
+$ Python
+Python 3.6.4 |Anaconda, Inc.| (default, Jan 16 2018, 12:04:33)
+[GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+#### 執行.py檔
+
+我們亦可使用.py檔來執行Python程式。
+
+```text
+$ Python Hello_World.py
+#上述終端機代碼即是執行Hello_World的python檔
+```
+
+.py 檔可透過任何文字編輯器編寫，筆者推薦的文字編輯器為Sublime，其擁有優美的介面與一些方便編寫程式的指令。
+
+![Sublime](.gitbook/assets/ying-mu-kuai-zhao-20180512-shang-wu-12.58.10%20%281%29.png)
+
+#### IDE \(Integrated Development Environment\)集成
+
+IDE是一種輔助開發人員進行開發編寫程式的應用程式，其通常包括程式語言編輯器、除錯器、編譯器等。  
   
+Python的IDE有很多，較為知名的有PyDev、IPython Notebook等等。  
+筆者推薦的IDE為IPython Notebook，其介面亦相當簡潔且可實時打印程式的輸出結果。好消息是，Anaconda已有附帶IPython Notebook，僅需在終端機中輸入以下代碼即可打開。
 
+```text
+$ jupyter Notebook
+```
 
+![IPython Notebook](.gitbook/assets/ying-mu-kuai-zhao-20180512-shang-wu-1.11.45.png)
 
+> 在IPython Notebook中的每格程式碼皆可實時執行，僅需按_Shift+Enter_。
 
