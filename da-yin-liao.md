@@ -12,7 +12,7 @@
 如此一來，就可顯示出Hello World啦～  
 其中用單引號或雙引號所圍住的內容會被以字串型態被Python建立，因此我們的'Hello World'物件的型態也會是字串囉。
 
-## 顯示
+## 打印
 
 在Python中，將指定內容顯示在螢幕上的方法有以下幾種：  
 1. sys.stdout.write\(\)：將指定內容打印於螢幕中，上面的Hello World的程式碼即是透過此方法來顯示出Hello World的。  
