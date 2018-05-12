@@ -151,3 +151,44 @@ gap為間隔，意味著每次跳幾個字，預設為1。
 6
 ```
 
+## 格式化字串
+
+在打印字串時，我們可以格式化字串來顯示，提升彈性，有兩種方式達成此效果。  
+1. 使用%格式化字串
+
+```text
+>>> print("%d %.2f %s" % (1,0.2,'Joey'))
+1 0.2 Joey
+# 在此例子中，%d代表對應整數, %.2f對應浮點數, %s對應字串，在該字串後用%接一個元組tuple。
+# 此tuple中所包含的值包括所要顯示的對應值。
+```
+
+2. 使用format格式化字串
+
+```text
+>>> print("{} {}".format("Hello","World"))
+Hello World
+# 不指定順序，而是以默認相應值顯示。
+
+>>> print("{0} {1} {0}".format("Hello","World"))
+Hello World Hellow
+# 指定順序
+
+>>> print("網站:{name},網址:{url}".format(name="火焰箭",url="www.xdxdxd.tw"))
+網站:火焰箭,網址:www.xdxdxd.tw
+# 指定參數
+
+>>> siteDict = {name:"火焰箭",url:"www.xdxdxd.tw")}
+>>> print("網站:{name},網址:{url}".format(**site))
+# 使用字典傳遞
+
+>>> siteList = ["火焰箭","www.xdxdxd.tw"]
+>>> print("網站:{0[0]},網址:{0[1]}".format(siteList))
+# 使用串列傳遞
+
+>>> siteValue = Site("火焰箭")
+# 假定以siteValue實例化Site類別，並指定其類別參數value為6。
+>>> print("網站:{0.value}".format(siteValue))
+# 以Object傳入format，類別的相關細節在之後章節詳述
+```
+
