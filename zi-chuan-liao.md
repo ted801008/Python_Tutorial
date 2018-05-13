@@ -1,4 +1,4 @@
-# 字串資料
+# 字串\(String\)
 
 ## 字串宣告
 
@@ -121,6 +121,19 @@ gap為間隔，意味著每次跳幾個字，預設為1。
 >>> a[-1]
 'd'
 #-1索引代表字串最右邊的字。
+```
+
+### 不可改變的\(Immuable\)
+
+在Python中，字串是不可改變的。
+
+```text
+>>> a = "Hello World"
+>>> a[1] = "X"
+Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+# 由上例即可看出字串是不容許被改變的。
 ```
 
 ### Unicode字串

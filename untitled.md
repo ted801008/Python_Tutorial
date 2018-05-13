@@ -129,16 +129,3 @@ $ jupyter Notebook
 >>> 'Hello World'
 ```
 
-如此一來，就可顯示出Hello World啦～  
-其中用單引號或雙引號所圍住的Hello World會被以字串型態被Python建立。在Python中，我們可以使用type\(\)與isinstance\(\)來查看該物件的類型。
-
-```text
->>> type('Hello World')
-<class 'str'>
-#由上可看到其類型為str，代表的即是字串類型(String)。
-
->>> isinstance('Hello World',str)
-True
-# 亦可使用isinstance確認其型態。
-```
-
