@@ -120,3 +120,25 @@ $ jupyter Notebook
 
 > 在IPython Notebook中的每格程式碼皆可實時執行，僅需按_Shift+Enter_。
 
+## 第一個程式
+
+當開發環境都建置完後，我們可以開始編寫程式囉～一開始不免俗就是要來Hello World一下囉，基本上所有程式人一開始所學的就是要如何在結果輸出顯示Hello World哈哈XD。  
+方法非常的簡單，如下：
+
+```text
+>>> 'Hello World'
+```
+
+如此一來，就可顯示出Hello World啦～  
+其中用單引號或雙引號所圍住的Hello World會被以字串型態被Python建立。在Python中，我們可以使用type\(\)與isinstance\(\)來查看該物件的類型。
+
+```text
+>>> type('Hello World')
+<class 'str'>
+#由上可看到其類型為str，代表的即是字串類型(String)。
+
+>>> isinstance('Hello World',str)
+True
+# 亦可使用isinstance確認其型態。
+```
+
