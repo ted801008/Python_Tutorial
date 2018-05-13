@@ -227,3 +227,13 @@ Hello World Hellow
 0.20,XDXD
 ```
 
+> 日期亦可使用format，在之後的章節會再討論日期的細節。
+
+```text
+>>> import datetime
+>>> now = datetime.datetime.now()
+#now為日期物件
+>>> print("{:%Y-%m-%d}".format(now))
+2018-05-13
+```
+
