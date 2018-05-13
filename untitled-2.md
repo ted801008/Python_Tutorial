@@ -23,6 +23,11 @@
 >>> d4 = dict('a'=1,'b'=2)
     File "<stdin>", line 1
 SyntaxError: keyword can't be an expression  
+
+>>> d4 = dict(zip(['a','b','c'],[1,2,3]))
+>>> print(d4)
+{'a':1,'b':2,'c':3}
+# 使用兩個串列來建立字典
 ```
 
 > Note：字典\(Dictionary\)的鍵值是不可變\(Immutable\)的，且不得重複。
@@ -39,7 +44,6 @@ SyntaxError: keyword can't be an expression
 >>> print(d5)
 {"a":0,"b":2,"c":3}
 
-
 >>> d5["d"] = 4
 >>> print(d5)
 {"a":0,"b":2,"c":3,"d":4}
@@ -47,11 +51,96 @@ SyntaxError: keyword can't be an expression
 
 由上例可看到我們是可以對字典的值進行變更的，取得特定值的方式如第二行，是使用對應的鍵值取得的。  
   
-至於新增或改變值的方法其實是一樣的，差別只在於所使用的鍵是否存在於該字典中，若存在則會改變相應值，若不存在則新增該艦值對。
+至於新增或改變值的方法其實是一樣的，差別只在於所使用的鍵是否存在於該字典中，若存在則會改變相應值，若不存在則新增該鍵值對。  
+  
+除此之外，我們亦可使用update\(\)函式來達到以上相同的效果。
+
+```text
+>>> d6 = {"a":1,"b":2,"c":3}
+>>> d6.update({"a":0})
+#or
+>>> d6.update(dict(a=0))
+#or
+>>> d6.update(a=0)
+>>> print(d6)
+{"a":0,"b":2,"c":3}
+# 更新單一值
+
+>>> d6.update({"a":1,"b":10})
+#or
+>>> d6.update(a=1,b=10)
+#or
+>>> d6.update(dict(a=1,b=10))
+>>> print(d6)
+{"a":1,"b":10,"c":3}
+# 一次更新多值
+
+>>> d7 = {}
+>>> d7.update(d6)
+>>> d7==d6
+True
+# 亦可直接傳入一個字典進行更新
+```
 
 > Note：  
 > 1. 字典的鍵屬於不可變\(Immutable\)的，且不可重複。  
 > 2. 創建空字典的方法非常簡單，僅需打{}或dict\(\)即可。
 
-### 
+當然，你也可以使用魔術方法\_\_setitem\_\_來增添/改變值，然而不建議使用這種方法，因為其處理速度較慢。
+
+```text
+>>> setDict = {}
+>>> setDict.__setitem__('d',100)
+>>> print(setDict)
+{'d':100}
+```
+
+### 刪除值
+
+```text
+>>> d8 = {"a":1,"b":2,"c":3}
+>>> del d8['a']
+>>> print(d8)
+{'b': 2, 'c': 3}
+# 使用del刪除特定值
+
+>>> popValue = d8.pop('b')
+>>> print(popValue)
+2
+>>> print(d8)
+{"c":3}
+# 使用pop()函式會回傳被刪除的值。
+
+>>> d8.clear()
+>>> print(d8)
+{}
+# 使用clear()函式，會直接清空該字典。
+```
+
+### 檢查是否存在
+
+檢查字典中是否存在特定鍵
+
+```text
+>>> d9 = {"a":1,"b":2,"c":3}
+>>> 'a' in d9
+True
+```
+
+### 取得所有鍵值對/鍵/值
+
+```text
+>>> d10 = {"a":1,"b":2,"c":3}
+>>> print(d10.keys())
+dict_keys(['a', 'b', 'c'])
+# 得到所有鍵
+
+>>> print(d10.values())
+dict_values([1, 2, 3])
+# 得到所有值
+
+>>> print(d10.items())
+dict_items([('a', 1), ('b', 2), ('c', 3)])
+# 得到所有鍵值對
+```
 
