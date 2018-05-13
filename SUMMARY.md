@@ -11,4 +11,5 @@
 * [字典\(Dictionary\)](untitled-2.md)
 * [打印資料](da-yin-liao.md)
 * [\_\_repr\_\_ vs.  \_\_str\_\_](__repr__-vs.-__str__.md)
+* [串列\(List\)](chuan-lie-list.md)
 
