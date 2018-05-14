@@ -22,14 +22,21 @@ print(value1, value2, value3, ..., sep=' ', end='\n', file=sys.stdout)
 | zfill\(x\) | 在字串左邊補0，總體\(字串+空格\)的長度為x+1。 |
 
 ```text
->>> a = '-3.14'
->>> print(a.rjust(10))
+a = '-3.14'
+print(a.rjust(10))
+輸出結果：
  ​    -3.14
->>> print(a.ljust(10))
+ 
+print(a.ljust(10))
+輸出結果：
 -3.14     
->>> print(a.center(10))
+
+print(a.center(10))
+輸出結果：
   -3.14   
->>> print(a.zfill(10))
+
+print(a.zfill(10))
+輸出結果：
 -000003.14
 ```
 
@@ -48,10 +55,13 @@ print(value1, value2, value3, ..., sep=' ', end='\n', file=sys.stdout)
 > eval函式的功用是接收字串格式，並將當作一段Python的程式碼執行產生內容。
 
 ```text
->>> str('Hello World')
-'Hello World'
->>> repr('Hello World')
-'"Hellow World"'
+print(str('Hello World'))
+輸出結果：
+Hello World
+
+print(repr('Hello World'))
+輸出結果：
+"Hellow World"
 ```
 
 由下圖可更清楚地看出，str\(\)函式會計算並回傳傳入值內容的字串格式，而repr\(\)函式則會回傳可以產生相應Object的Python程式碼之字串格式，需用eval\(\)函式來得到內容。  
@@ -67,6 +77,8 @@ print(value1, value2, value3, ..., sep=' ', end='\n', file=sys.stdout)
 'datetime.datetime(2018, 5, 11, 17, 31, 53, 557488)'
 >>> eval(repr(currentTime))
 datetime.datetime(2018, 5, 11, 17, 31, 53, 557488)
+
+# 以上為互動式指令介面畫面
 ```
 
 ### 格式化字串
@@ -75,7 +87,8 @@ datetime.datetime(2018, 5, 11, 17, 31, 53, 557488)
 1. 使用%格式化字串
 
 ```text
->>> print("%d %.2f %s" % (1,0.2,'Joey'))
+print("%d %.2f %s" % (1,0.2,'Joey'))
+輸出結果：
 1 0.2 Joey
 # 在此例子中，%d代表對應整數, %.2f對應浮點數, %s對應字串，在該字串後用%接一個元組tuple。
 # 此tuple中所包含的值包括所要顯示的對應值。
@@ -84,33 +97,40 @@ datetime.datetime(2018, 5, 11, 17, 31, 53, 557488)
 2. 使用format格式化字串
 
 ```text
->>> print("{} {}".format("Hello","World"))
+print("{} {}".format("Hello","World"))
+輸出結果：
 Hello World
 # 不指定順序，而是以默認相應值顯示。
 
->>> print("{0} {1} {0}".format("Hello","World"))
+print("{0} {1} {0}".format("Hello","World"))
+輸出結果：
 Hello World Hellow
 # 指定位置
 
->>> print("網站:{name},網址:{url}".format(name="火焰箭",url="www.xdxdxd.tw"))
+print("網站:{name},網址:{url}".format(name="火焰箭",url="www.xdxdxd.tw"))
+輸出結果：
 網站:火焰箭,網址:www.xdxdxd.tw
 # 指定參數
 
->>> print("名字:{name},網址:{1}".format(name="火焰箭","www.xdxdxd.tw"))
+print("名字:{name},網址:{1}".format(name="火焰箭","www.xdxdxd.tw"))
+輸出結果：
 網站:火焰箭,網址:www.xdxdxd.tw
 # 指定位置、參數
 
->>> siteDict = {name:"火焰箭",url:"www.xdxdxd.tw")}
->>> print("網站:{name},網址:{url}".format(**site))
+siteDict = {name:"火焰箭",url:"www.xdxdxd.tw")}
+print("網站:{name},網址:{url}".format(**site))
+輸出結果：
 # 使用字典傳遞
 
->>> siteList = ["火焰箭","www.xdxdxd.tw"]
->>> print("網站:{0[0]},網址:{0[1]}".format(siteList))
+siteList = ["火焰箭","www.xdxdxd.tw"]
+print("網站:{0[0]},網址:{0[1]}".format(siteList))
+輸出結果：
 # 使用串列傳遞
 
->>> siteValue = Site("火焰箭")
+siteValue = Site("火焰箭")
 # 假定以siteValue實例化Site類別，並指定其類別參數value為6。
->>> print("網站:{0.value}".format(siteValue))
+print("網站:{0.value}".format(siteValue))
+輸出結果：
 # 以Object傳入format，類別的相關細節在之後章節詳述
 ```
 
@@ -144,29 +164,33 @@ Hello World Hellow
 > format亦可作為函式來進行處理，如下
 
 ```text
->>> formatFunc = "{:.2f},{:s}".format
->>> print(formatFunc(0.2,"XDXD"))
+formatFunc = "{:.2f},{:s}".format
+print(formatFunc(0.2,"XDXD"))
+輸出結果：
 0.20,XDXD
 ```
 
 > 日期亦可使用format，在之後的章節會再討論日期的細節。
 
 ```text
->>> import datetime
->>> now = datetime.datetime.now()
+import datetime
+now = datetime.datetime.now()
 #now為日期物件
->>> print("{:%Y-%m-%d}".format(now))
+print("{:%Y-%m-%d}".format(now))
+輸出結果：
 2018-05-13
 ```
 
 > 字典亦可作為傳入值
 
 ```text
->>> formatDict = {"Joey":1,"Kobe":2}
->>> print("Joey:{0[Joey]:d},Kobe:{0[Kobe]:d}".format(formatDict))
+formatDict = {"Joey":1,"Kobe":2}
+print("Joey:{0[Joey]:d},Kobe:{0[Kobe]:d}".format(formatDict))
+輸出結果：
 Joey:1,Kobe:2
 
->>> print("Joey:{Joey:d},Kobe:{Kobe:d}".format(**formatDict))
+print("Joey:{Joey:d},Kobe:{Kobe:d}".format(**formatDict))
+輸出結果：
 Joey:1,Kobe:2
 ```
 
@@ -176,7 +200,8 @@ Joey:1,Kobe:2
 3. 冒號：後的數字為指定該字串的總長度為多少
 
 ```text
->>> print("{0:10}-->{1:10d}".format("數值",123))
+print("{0:10}-->{1:10d}".format("數值",123))
+輸出結果：
 數值        -->       123
 ```
 
@@ -188,7 +213,7 @@ Joey:1,Kobe:2
 
 ```text
 # 以下程式代碼會先在螢幕中打印出「請輸入您的姓名」的內容，並等待接收用戶所輸入的資訊。
->>> input('請輸入您的姓名')
+input('請輸入您的姓名')
 ```
 
 除此之外，你亦可使用sys.sdin來取得用戶所輸入的內容，如下：
@@ -196,8 +221,10 @@ Joey:1,Kobe:2
 ```text
 >>> import sys
 >>> sys.stdin.readline()
-Hello World
+Hello World # 此為使用者輸入的
 'Hello World\n'
+
+# 以上為互動式指令介面畫面
 ```
 
 可以發現上面的程式碼輸出最後是有換行符號\n的，這也是其與input\(\)函式的差別，input\(\)函式的輸出最後並無換行符號。
@@ -207,11 +234,11 @@ Hello World
 我們可以將目標文檔的引用賦給sys.stdout，如此print\(\)函式所輸出的內容則會直接寫至該目標文檔中。
 
 ```text
->>> import sys
+import sys
 #下段程式碼為建立可寫入資料的檔案
->>> outputLog = open('outputLog','w')
->>> sys.sdout = outputLog
->>> print('Hello World')
+outputLog = open('outputLog','w')
+sys.sdout = outputLog
+print('Hello World')
 #因此print()函式所輸出的內容並不會顯示於螢幕上，而是寫至目標文檔中。
 ```
 
@@ -224,5 +251,7 @@ Hello World
 #...
 >>> sys.stdout = __console__
 #此時已重新回復輸出預設
+
+# 以上為互動式指令介面畫面
 ```
 

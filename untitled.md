@@ -126,6 +126,10 @@ $ jupyter Notebook
 方法非常的簡單，如下：
 
 ```text
->>> 'Hello World'
+print('Hello World')
+輸出結果：
+Hello World
 ```
+
+> 預設情況下，Python的print\(\)函式最後會加上一個換行符號的。
 

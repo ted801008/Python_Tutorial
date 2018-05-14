@@ -16,11 +16,13 @@
 另一方面，在Python中，我們可以使用type\(\)與isinstance\(\)來查看類型。
 
 ```text
->>> type('Hello World')
+print(type('Hello World'))
+輸出結果：
 <class 'str'>
 #由上可看到其類型為str，代表的即是字串類型(String)。
 
->>> isinstance('Hello World',str)
+print(isinstance('Hello World',str))
+輸出結果：
 True
 # 亦可使用isinstance確認其型態。
 ```

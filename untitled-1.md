@@ -5,12 +5,14 @@
 元組宣告方式有兩種：
 
 ```text
->>> t1 = tuple('a')
->>> type(t1)
+t1 = tuple('a')
+print(type(t1))
+輸出結果：
 <class 'tuple'>
 
->>> t2 = ('a',123,tuple('a'))
->>> type(t2)
+t2 = ('a',123,tuple('a'))
+print(type(t2))
+輸出結果：
 <class 'tuple'>
 ```
 
@@ -19,18 +21,21 @@
 > 當使用\( \)來宣告元組時，當僅宣告空元組或一個元組時需注意：
 
 ```text
->>> t3 = ()
->>> type(t3)
+t3 = ()
+print(type(t3))
+輸出結果：
 <class 'tuple'>
 #宣告空元組
 
->>> t4 = (20,)
->>> type(t4)
+t4 = (20,)
+print(type(t4))
+輸出結果：
 <class 'tuple'>
 #當要宣告一個元組時，需在元素後加上逗點，否則會變為宣告數值，如下例
 
->>> t5 = (20)
->>> type(t5)
+t5 = (20)
+print(type(t5))
+輸出結果：
 <class 'int'>
 ```
 
@@ -41,16 +46,18 @@
 與字串一樣，元組亦可透過Slice\(切片\)來取得其中的值。
 
 ```text
->>> t6 = (1,'Joey',3,4,5,'XDXD',7,8,9)
->>> print(t6[2:5])
+t6 = (1,'Joey',3,4,5,'XDXD',7,8,9)
+print(t6[2:5])
+輸出結果：
 (3,4,5)
 ```
 
 同時，元組亦為不可變\(Immutable\)的資料型態。
 
 ```text
->>> t7 = (1,'Joey',3,4,5,'XDXD',7,8,9)
->>> t7[3] = 2
+t7 = (1,'Joey',3,4,5,'XDXD',7,8,9)
+t7[3] = 2
+輸出結果：
 Traceback (most recent call last):
     File "<stdin>", line 1, in <module>
 TypeError: 'tuple' object does not support item assignment
@@ -63,11 +70,13 @@ TypeError: 'tuple' object does not support item assignment
 雖然元組內容是不可變更的\(Immutable\)，但我們可以新增元素。
 
 ```text
->>> t8 = (1,'Joey',3,4,5,'XDXD',7,8,9)
->>> t8+(10,11,12)
+t8 = (1,'Joey',3,4,5,'XDXD',7,8,9)
+print(t8+(10,11,12))
+輸出結果：
 (1,'Joey',3,4,5,'XDXD',7,8,9,10,11,12)
 
->>> t8*2
+print(t8*2)
+輸出結果：
 (1,'Joey',3,4,5,'XDXD',7,8,9,10,11,12,1,'Joey',3,4,5,'XDXD',7,8,9,10,11,12)
 ```
 

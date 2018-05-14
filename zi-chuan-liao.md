@@ -5,12 +5,17 @@
 在Python中，字串資料可由雙引號或單引號宣告，如下
 
 ```
->>> "Hello World"
-'Hello World'
->>> 'Hello World'
+print("Hello World")
+輸出結果：
+Hello World
+
+print('Hello World')
+輸出結果：
 'Hello World'
 #兩者型態皆為str
->>> len('Hello World')
+
+print(len('Hello World'))
+輸出結果：
 11
 #字串長度可透過len()函式來得到
 ```
@@ -22,28 +27,25 @@
 > 當然，你亦可在字串的雙引號或單引號前加上r，來代表原始字串\(raw\)。
 
 ```text
->>> print("Hello \"World\"")
+print("Hello \"World\"")
+輸出結果：
 Hello "World"
 
->>> print('Hello \'World\'')
+print('Hello \'World\'')
+輸出結果：
 Hello 'World'
 
->>> print('Hello \World')
+print('Hello \World')
+輸出結果：
 Hello \World
 
->>> print('Hello \\World')
+print('Hello \\World')
+輸出結果：
 Hello \World
 
->>> print(r'Hello \\World')
+print(r'Hello \\World')
+輸出結果：
 Hello \\World
-```
-
-> 除此之外，反斜線\亦可作為續行符號，表示下一行是上一行的延續。
-
-```text
->>> print('xyz\
-... abcd')
-xyzabcd
 ```
 
 ## 字串運算
@@ -53,7 +55,8 @@ xyzabcd
 字串間的加法，可將不同字串拼接在一起。
 
 ```text
->>> print("Hello "+"World")
+print("Hello "+"World")
+輸出結果：
 Hello World
 ```
 
@@ -62,7 +65,8 @@ Hello World
 字串的乘法，能重複該字串。
 
 ```text
->>> print("*"*10)
+print("*"*10)
+輸出結果：
 **********
 ```
 
@@ -78,56 +82,65 @@ gap為間隔，意味著每次跳幾個字，預設為1。
 ```
 
 ```text
->>> a = "Hello World"
+a = "Hello World"
 
 #取第一個字
->>> a[0]
-'H'
+print(a[0])
+輸出結果：
+H
 
 #取第3到第7個字
->>> a[2:7]
-'llo W'
+print(a[2:7])
+輸出結果：
+llo W
 #這邊要注意的點是
 # 1. :的前後數字代表著從那個索引到哪個索引，這邊例子代表從第2個索引到第6個索引。
 # 2. 最後的索引值並不會被索引到，因此這邊例子的結束索引值為7，但實際上僅會索引到6。
 
 #起始索引省略
->>> a[:5]
-'Hello'
+print(a[:5])
+輸出結果：
+Hello
 # 意味著從字串的一開始索引到第4個索引
 
 #結束索引省略
->>> a[6:]
-'World'
+print(a[6:])
+輸出結果：
+World
 # 意味著從第六個索引到字串的最後。
 
->>> a[0:7:2]
-'HloW'
+print(a[0:7:2])
+輸出結果：
+HloW
 # 意味著從0開始索引到第6個索引，每次跳兩個字。
 
->>> a[:]
-'Hello World'
+print(a[:])
+輸出結果：
+Hello World
 # 意味著從0開始索引到字串的最後
 
->>> a[::-1]
-'dlroW olleH'
+print(a[::-1])
+輸出結果：
+dlroW olleH
 # 意味著倒過來索引
 ```
 
 另外，索引的值亦可為負數，代表著從字串後面倒過來開始索引。
 
 ```text
->>> a = "Hello World"
->>> a[-1]
-'d'
+a = "Hello World"
+print(a[-1])
+輸出結果：
+d
 #-1索引代表字串最右邊的字。
 ```
 
 > 另一方面，在Python中，字串\(String\)是不可變的\(Immutable\)。
 
 ```text
->>> a = "Hello World"
->>> a[1] = "X"
+a = "Hello World"
+a[1] = "X"
+輸出結果：
 Traceback (most recent call last):
     File "<stdin>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
@@ -148,26 +161,29 @@ TypeError: 'str' object does not support item assignment
 
 ```text
 #Python2
->>> text1 = '測試'
->>> len(text1)
+text1 = '測試'
+print(len(text1))
+輸出結果：
 6
 # 原因在於其計算該字串的位元組序列長度，而'測試'這兩個字元以UTF-8編碼後，會使用6個位元組。
 
 #Python3
->>> text2 = '測試'
->>> len(text2)
+text2 = '測試'
+print(len(text2))
+輸出結果：
 2
 # Python3對於unicode編碼就有較好的支援
 
 #Python2
->>> text3 = u'測試'
->>> len(text3)
+text3 = u'測試'
+print(len(text3))
+輸出結果：
 2
 
 #Python3
 # 亦可使用bytes()方法來用位元組序列代表該字串。
->>> len(bytes('測試','utf-8'))
->>> len(text4)
+print(len(bytes('測試','utf-8')))
+輸出結果：
 6
 ```
 
