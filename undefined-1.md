@@ -40,5 +40,52 @@ b'\xe4\xbf\xae'
 
 > 由上述可以看到，ASCII其實可以沿用舊制的，並無改變，這樣可以讓過去建置的系統能繼續使用。
 
-> 在計算機內存中可以統一使用Unicode編碼，但在儲存、傳輸時就轉換為UTF-8編碼，將字串轉換為以字節為單位的Bytes。
+> 在計算機內存中可以統一使用Unicode編碼，但在儲存、傳輸時就轉換為UTF-8編碼的位元組\(Bytes\)--&gt;以字節為單位。
+
+```text
+a = b'abc'
+# 在字串前加上b的前綴字，即可將該字串轉換為位元組。
+```
+
+## 編碼/解碼
+
+在預設情況下，Python3的字串皆使用Unicode編碼，若要將字串轉換為其他指定編碼的位元組\(Byte\)，可以使用encode\( \)函式。
+
+```text
+a = 'abc'.encode('ascii')
+print(a)
+輸出結果：
+b'abc'
+
+b = '一修'.encode('ascii')
+輸出結果：
+Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
+# 上例錯誤的原因在於中文字超出ASCII編碼的範圍。
+
+c = '一修'.encode('utf-8')
+print(c)
+輸出結果：
+b'\xe4\xb8\x80\xe4\xbf\xae'
+```
+
+當然，我們亦可使用decode\( \)函式將這些位元組解碼還原為Unicode編碼。
+
+```text
+print(b'abc'.decode('ascii'))
+輸出結果：
+abc
+
+print(b'\xe4\xb8\x80\xe4\xbf\xae'.decode('utf-8'))
+輸出結果：
+一修
+
+print(b'\xe4\xb8\xad\x87'.decode('utf-8'))
+輸出結果：
+Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x87 in position 3: invalid start byte
+# 上例錯誤原因在於存在某些無法被解碼的字節。
+```
 
