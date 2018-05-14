@@ -2,7 +2,7 @@
 
 ## 字串宣告
 
-在Python中，字串資料可由雙引號或單引號宣告，如下
+在Python中，字串資料可由雙引號或單引號宣告如下
 
 ```
 print("Hello World")
@@ -18,6 +18,19 @@ print(len('Hello World'))
 輸出結果：
 11
 #字串長度可透過len()函式來得到
+
+print('H
+e
+l
+l
+o World')
+輸出結果：
+H
+e
+l
+l
+o World
+# 使用三個單引號或三個雙引號達成多行字串。
 ```
 
 > Note：Python使用反斜線\來轉譯特殊字符，例如\n即代表換行。  

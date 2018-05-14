@@ -11,6 +11,7 @@
 * [集合\(Set\)](ji-he-set.md)
 * [字典\(Dictionary\)](untitled-2.md)
 * [串列\(List\)](chuan-lie-list.md)
-* [輸出](da-yin-liao.md)
 * [數據形態變更](xing-geng.md)
+* [輸出](da-yin-liao.md)
+* [編碼](undefined-1.md)
 

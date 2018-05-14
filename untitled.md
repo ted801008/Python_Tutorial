@@ -109,7 +109,7 @@ $ Python Hello_World.py
 
 IDE是一種輔助開發人員進行開發編寫程式的應用程式，其通常包括程式語言編輯器、除錯器、編譯器等。  
   
-Python的IDE有很多，較為知名的有PyDev、IPython Notebook等等。  
+Python的IDE有很多，較為知名的有PyPy、IPython Notebook等等。  
 筆者推薦的IDE為IPython Notebook，其介面亦相當簡潔且可實時打印程式的輸出結果。好消息是，Anaconda已有附帶IPython Notebook，僅需在終端機中輸入以下代碼即可打開。
 
 ```text
