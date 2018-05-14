@@ -123,9 +123,7 @@ gap為間隔，意味著每次跳幾個字，預設為1。
 #-1索引代表字串最右邊的字。
 ```
 
-### 不可改變的\(Immuable\)
-
-在Python中，字串是不可改變的。
+> 另一方面，在Python中，字串\(String\)是不可變的\(Immutable\)。
 
 ```text
 >>> a = "Hello World"

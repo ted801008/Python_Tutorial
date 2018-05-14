@@ -60,7 +60,7 @@ TypeError: 'tuple' object does not support item assignment
 
 ### 元組增添
 
-雖然元組內容是不可變更的，但我們可以新增元素。
+雖然元組內容是不可變更的\(Immutable\)，但我們可以新增元素。
 
 ```text
 >>> t8 = (1,'Joey',3,4,5,'XDXD',7,8,9)

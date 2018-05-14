@@ -8,10 +8,10 @@
 | 字串\(String\) | 不可變\(Immutable\) |
 | 元組\(Tuple\) | 不可變\(Immutable\) |
 | 集合\(Set\) | 不可變\(Immutable\) |
-| 串列\(List\) | 可變\(mutable\) |
-| 字典\(Dictionary\) | 可變\(mutable\) |
+| 串列\(List\) | 可變\(Mutable\) |
+| 字典\(Dictionary\) | 可變\(Mutable\) |
 
-所謂的可變\(mutable\)與不可變\(Immutable\)是指該數據可否被改變內部值。  
+所謂的可變\(Mutable\)與不可變\(Immutable\)是指該數據可否被改變內部值。  
   
 另一方面，在Python中，我們可以使用type\(\)與isinstance\(\)來查看類型。
 

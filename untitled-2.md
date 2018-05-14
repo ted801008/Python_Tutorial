@@ -30,13 +30,11 @@ SyntaxError: keyword can't be an expression
 # 使用兩個串列來建立字典
 ```
 
-> Note：字典\(Dictionary\)的鍵值是不可變\(Immutable\)的，且不得重複。
-
 ## 字典\(Dictionary\)操作
 
 ### 改變/新增值
 
-字典屬於可變\(mutable\)的資料型態，想要取得特定值，僅需透過其相應的鍵值即可取得。
+字典屬於可變\(Mutable\)的資料型態，想要取得特定值，僅需透過其相應的鍵值即可取得。
 
 ```text
 >>> d5 = {"a":1,"b":2,"c":3}
