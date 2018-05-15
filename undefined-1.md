@@ -26,7 +26,7 @@
 >>> a.encode('utf-8')
 b'\xe4\xbf\xae'
 >>> a = a.encode('utf-8')
->>> bin(int(a,16))
+>>> bin(int(a.hex(),16))
 >>> '0b111001001011111110101110'
 # 取得UTF-8編碼
 
