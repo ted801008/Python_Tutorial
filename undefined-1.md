@@ -49,7 +49,7 @@ a = b'abc'
 
 ## 編碼/解碼
 
-在預設情況下，Python3的字串皆使用Unicode編碼，若要將字串轉換為其他指定編碼的位元組\(Byte\)，可以使用encode\( \)函式。
+在預設情況下，Python3的字串皆為Unicode，編碼/解碼皆採用UTF-8編碼。若要將字串轉換為其他指定編碼的位元組\(Byte\)，可以使用encode\( \)函式。
 
 ```text
 a = 'abc'.encode('ascii')
@@ -112,6 +112,18 @@ print(len(b))
 輸出結果：
 6
 ```
+
+總結來說  
+字節流：二進制數據\(Byte\)  
+字符：文本\(Str\)  
+在Python3中，所有網路協議皆是使用Byte，字節流與字符是被區分的，字符預設狀況下為Unicode，字符\(str\)與Unicode可以混用。  
+在Python2中，字節流與字符並無被區分，兩者可以一起混用。然而由於Python2在Unicode推出前即被先行推出，因此並無很好的支援。字符\(str\)與Unicode是不可被混用的，兩者關係在於字符\(str\)可被解碼為Unicode，而Unicode可以被編碼為字符\(str\)。  
+  
+基本上，這兩個關係就是如下圖。
+
+![&#x5B57;&#x7BC0;&#x6D41; vs. &#x5B57;&#x7B26;](.gitbook/assets/wei-ming-ming-wen-jian-1.png)
+
+![](.gitbook/assets/wei-ming-ming-wen-jian-2.png)
 
 ## 腳本宣告編碼
 
