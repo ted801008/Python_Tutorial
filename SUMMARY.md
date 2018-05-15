@@ -14,4 +14,6 @@
 * [數據形態變更](xing-geng.md)
 * [輸出](da-yin-liao.md)
 * [編碼](undefined-1.md)
+* [條件控制](jian-kong-zhi.md)
+* 循環
 
