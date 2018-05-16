@@ -128,3 +128,56 @@ title:龍
 # 可以看到當未給參數值時，則會使用默認的值。
 ```
 
+#### 不定長參數
+
+當所傳入的參數數量是不定時，則可使用不定長參數，定義不定長參數僅需在該參數前加上星號\(\*\)。
+
+```text
+def func(name,email,*other):
+    print('Name:',name)
+    sum = 0
+    for i in other:
+        sum+=i
+    print('Total_Score:',sum/len(other))
+    print('Eamil:',email)
+
+func('Joey','joey@gmail.com',90,70,80)
+print()
+func('Kobe','kobe@gmail.com',99,96,92,97,94)
+執行結果：
+Name: Joey
+Total_Score: 80.0
+Eamil: joey@gmail.com
+
+Name: Kobe
+Total_Score: 95.6
+Eamil: kobe@gmail.com
+
+# 可以看到在定義參數時，僅需在該參數前加上星號*，即可將其定義為不定長參數。
+# 在每次呼叫函式時，可給予不同數量的值。
+```
+
+## 匿名函式
+
+匿名函式在Python中是一個很特別的函式，其不用以def來建構標準的函式，僅需使用lambda來建構表達式，相較於建構標準的def函式，較為簡潔。
+
+def函式的主體為代碼塊，而匿名函式的主體則只是一個包含有限邏輯的表達式，其擁有自己的命名空間，而不能使用自己參數列表以外的參數，全局參數亦不行。
+
+建立方式如下：
+
+```text
+lambda arg1,arg2,arg3... : expression
+```
+
+```text
+average = lambda arg1,arg2,arg3:(arg1+arg2+arg3)/3
+print('平均:',average(1,2,3))
+執行結果：
+平均:2.0
+
+a = [(lambda x:x*x)(x) for x in range(10)]
+print(a)
+執行結果：
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
+
