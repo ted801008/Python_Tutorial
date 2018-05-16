@@ -12,6 +12,19 @@
 函式的宣告需使用def關鍵字，由於怕講得抽象，因此我們直接帶例子來看吧。
 
 ```text
+def firstDef():
+    print('XD')
+    return
+result = firstDef()
+print(result)
+輸出結果：
+XD
+None
+
+#函式名稱為fiestDef，沒有指定參數。
+# 不帶表達式的return或者根本不宣告return代表回傳None。
+
+
 def joey(a,b):
     print(a,end=' ')
     print(b)
@@ -19,16 +32,18 @@ def joey(a,b):
 
 result = joey('I am','Joey')
 print(result)
-
 輸出結果：
 I am Joey
 END
+
+# 函式名為joey，參數為a,b可在呼叫時給予值。
+# 使用return來回傳END字串，並賦值給名為result的變數。
 ```
 
 由上例可以看到，函式的宣告規則有：  
-1. 使用def 關鍵字來宣告  
-2. 在def後的為該函式的名稱，像此例的函式名稱為joey  
-3. 在函式名稱後需接\( \):，若有要使用參數\(可在呼叫時給予值\)，則在括號內宣告。像此例即宣告了a,b兩個參數，在其內的代碼中就可使用。  
-4. 可使用return關鍵字來回傳值，在此例中即回傳了END的字串，並賦值給名為result的變數。  
+1. 使用def 關鍵字來宣告。  
+2. 在def後的為該函式的名稱。  
+3. 在函式名稱後需接\( \):若要使用參數\(可在呼叫時給予值\)，則在括號內宣告，若沒有要使用參數，則讓此括號為空就好。。  
+4. 可使用return關鍵字來回傳值。  
 5. 呼叫函式僅需寫上該函式名稱與對應參數，多一個或少一個都不行喔。
 
