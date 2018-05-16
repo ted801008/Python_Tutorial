@@ -181,3 +181,68 @@ print(a)
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
+## 變數作用域
+
+在Python中，並不是所有變數都可以供你在任意位置使用，有些變數哪裡都可以用，有些變數只能在某地方用。以此邏輯，Python的作用域可以被分為：  
+1. 局部作用域：Local\(L\)  
+2. 嵌套函數\(閉包\)作用域：Enclosing\(E\)  
+3. 全局作用域：Global\(G\)  
+4. 內建作用域：Built-in\(B\)
+
+Python會以LEGB的規則去查找變數，一開始會到局部作用域\(Local\)找，找不到時，便到局部的局部作用域\(Enclosing\)找，接著才到全局作用域找，最後是到內建作用域找。
+
+在Python中，只有模塊\(module\)、類別\(class\)、函式\(def,lambda\)才會建立新的作用域，其於代碼則不會引入新的作用域。
+
+#### 局部作用域
+
+```text
+def func():
+    a = '1'
+print(a)
+執行結果：
+NameError: name 'a' is not defined
+# 在函式內宣告的變數a屬於局部作用域，僅能在該函式內使用。
+```
+
+#### 全局作用域
+
+```text
+a = 1
+def func():
+    print(a)
+func()
+執行結果：
+1
+# 在外部宣告的變數a屬於全局作用域，可在該程式任一地方使用。
+```
+
+### global & nonlocal 關鍵字
+
+當你想在局部作用域改變全局作用域的變數時，便須使用到global關鍵字了。
+
+```text
+a = 1
+def func():
+    global a
+    a = 0
+func()
+print(a)
+執行結果：
+0
+```
+
+若想在局部作用域修改嵌套作用域\(enclosing\)的變數時，則須使用到nonlocal關鍵字。
+
+```text
+def func1():
+    a = 0
+    def func2():
+        nonlocal a
+        a = 1
+    func2()
+    print(a)
+func1()
+執行結果：
+1
+```
+
