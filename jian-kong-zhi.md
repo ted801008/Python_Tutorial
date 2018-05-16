@@ -30,3 +30,28 @@ else:
 no
 ```
 
+## Pass
+
+Pass語句在Python中是代表不會做任何事的表示，以確保程式碼結構的完整性。
+
+```text
+if 1==True:
+    print('ok')
+else:
+
+輸出結果：
+SyntaxError: unexpected EOF while parsing
+
+# 如果想寫不做任何事的程式碼，直接留空白是不允許的。
+
+if 1==True:
+    print('ok')
+else:
+    pass
+
+輸出結果：
+ok
+
+# 使用pass語句即可表達不做任何事。
+```
+
