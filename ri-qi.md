@@ -30,14 +30,14 @@
 ```text
 import time
 print(time.asctime())
-執行結果：
+輸出結果：
 Thu May 17 00:58:48 2018
 
 import time
 randomTime = '2018-02-10 0:12:12'
 timeTuple = time.strptime(randomTime,'%Y-%m-%d %H:%M:%S')
 print(time.asctime(timeTuple))
-執行結果：
+輸出結果：
 Sat Feb 10 00:12:12 2018
 ```
 
@@ -48,12 +48,75 @@ Sat Feb 10 00:12:12 2018
 ```text
 import time
 print(time.ctime())
-執行結果：
+輸出結果：
 Thu May 17 01:04:41 2018
 
 import time
 print(time.ctime(1526482323))
-執行結果：
+輸出結果：
 Wed May 16 22:52:03 2018
+```
+
+#### gmtime\(\)
+
+將一個時間戳轉換成一個UTC時區\(0時區\)的struct\_time，預設為當前時間。
+
+```text
+import time
+print(time.gmtime())
+輸出結果：
+time.struct_time(tm_year=2018, tm_mon=5, tm_mday=16, tm_hour=17, tm_min=14, tm_sec=57, tm_wday=2, tm_yday=136, tm_isdst=0)
+
+import time
+print(time.gmtime(1526482323))
+輸出結果：
+time.struct_time(tm_year=2018, tm_mon=5, tm_mday=16, tm_hour=14, tm_min=52, tm_sec=3, tm_wday=2, tm_yday=136, tm_isdst=0)
+```
+
+#### localtime\(\)
+
+將一個時間戳轉換成當前時區的struct\_time，預設為當前時間。
+
+```text
+import time
+print(time.localtime())
+輸出結果：
+time.struct_time(tm_year=2018, tm_mon=5, tm_mday=17, tm_hour=1, tm_min=17, tm_sec=43, tm_wday=3, tm_yday=137, tm_isdst=0)
+
+import time
+print(time.localtime(1526482323))
+輸出結果：
+time.struct_time(tm_year=2018, tm_mon=5, tm_mday=16, tm_hour=22, tm_min=52, tm_sec=3, tm_wday=2, tm_yday=136, tm_isdst=0)
+```
+
+#### mktime\(\)
+
+將一個struct\_time轉換為時間戳。
+
+```text
+import time
+randomTime = '2018-02-10 0:12:12'
+timeTuple = time.strptime(randomTime,'%Y-%m-%d %H:%M:%S')
+print(time.mktime(timeTuple))
+輸出結果：
+1518192732.0
+```
+
+#### strftime\(\)
+
+將一個struct\_time轉換為指定的格式化字串輸出，預設為當前時間。
+
+```text
+import time
+print(time.strftime("%Y-%m-%d %H:%M:%S"))
+輸出結果：
+2018-05-17 01:28:51
+
+import time
+randomTime = '2018-02-10 0:12:12'
+timeTuple = time.strptime(randomTime,'%Y-%m-%d %H:%M:%S')
+print(time.strftime('%Y-%m-%d %H:%M:%S',timeTuple))
+輸出結果：
+2018-02-10 00:12:12
 ```
 
