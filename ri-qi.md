@@ -120,3 +120,16 @@ print(time.strftime('%Y-%m-%d %H:%M:%S',timeTuple))
 2018-02-10 00:12:12
 ```
 
+#### strptime\(\)
+
+將字串根據指定的格式轉換為struct\_time。
+
+```text
+import time
+randomTime = '2018-02-10 0:12:12'
+timeTuple = time.strptime(randomTime,'%Y-%m-%d %H:%M:%S')
+print(timeTuple)
+輸出結果：
+time.struct_time(tm_year=2018, tm_mon=2, tm_mday=10, tm_hour=0, tm_min=12, tm_sec=12, tm_wday=5, tm_yday=41, tm_isdst=-1)
+```
+
