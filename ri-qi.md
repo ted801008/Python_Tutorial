@@ -133,3 +133,14 @@ print(timeTuple)
 time.struct_time(tm_year=2018, tm_mon=2, tm_mday=10, tm_hour=0, tm_min=12, tm_sec=12, tm_wday=5, tm_yday=41, tm_isdst=-1)
 ```
 
+#### time\(\)
+
+回傳當前時間的時間戳。
+
+```text
+import time
+print(time.time())
+輸出結果：
+1526574922.099891
+```
+
