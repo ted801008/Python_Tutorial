@@ -144,3 +144,14 @@ print(time.time())
 1526574922.099891
 ```
 
+## datetime模塊
+
+### 變數
+
+datetime.MINYEAR：datetime模塊所能表示的最小年份  
+datetime.MAXYEAR：datetime模塊所能表示的最大年份
+
+### 類別
+
+datetime.date：表示日期，常用屬性有year, month, day。
+
