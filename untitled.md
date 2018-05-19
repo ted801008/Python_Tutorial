@@ -80,9 +80,9 @@ $ vi ~/.bash_profile
 
 當安裝完Anaconda後，我們就可以來編寫Python囉~
 
-#### 互動式終端介面
+#### 直譯器
 
-我們可以使用終端機開啟互動指令介面來編寫Python，如下圖可以看到若建置安裝完Anaconda後，就會出現Anaconda的字眼。
+Python直譯器的開啟方法為，開啟終端機輸入Python，如下圖可以看到若建置安裝完Anaconda後，就會出現Anaconda的字眼。
 
 ```text
 $ Python
@@ -91,8 +91,6 @@ Python 3.6.4 |Anaconda, Inc.| (default, Jan 16 2018, 12:04:33)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
-
-#### 執行.py檔
 
 我們亦可使用.py檔來執行Python程式。
 
@@ -105,11 +103,10 @@ $ Python Hello_World.py
 
 ![Sublime](.gitbook/assets/ying-mu-kuai-zhao-20180512-shang-wu-12.58.10%20%281%29.png)
 
-#### IDE \(Integrated Development Environment\)集成
+#### IDE \(Integrated Development Environment\)整合式 開發環境軟體
 
 IDE是一種輔助開發人員進行開發編寫程式的應用程式，其通常包括程式語言編輯器、除錯器、編譯器等。  
   
-Python的IDE有很多，較為知名的有PyPy、IPython Notebook等等。  
 筆者推薦的IDE為IPython Notebook，其介面亦相當簡潔且可實時打印程式的輸出結果。好消息是，Anaconda已有附帶IPython Notebook，僅需在終端機中輸入以下代碼即可打開。
 
 ```text
