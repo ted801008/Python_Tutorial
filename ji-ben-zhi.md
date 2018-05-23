@@ -8,7 +8,7 @@
 
 #### 直譯器\(Interpreter\)
 
-在執行時，透過直譯器\(Interpreter\)動態地將原始程式碼逐句直譯為可執行的位元碼。
+在執行時，透過直譯器\(Interpreter\)動態地將原始程式碼逐句直譯為可執行的機器碼。
 
 ![](.gitbook/assets/bian-yi-zhi-yi.png)
 
