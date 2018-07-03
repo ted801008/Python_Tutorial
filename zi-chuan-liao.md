@@ -221,3 +221,53 @@ print(len(bytes('測試','utf-8')))
 6
 ```
 
+## 字串常用方法
+
+| function | description |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| str.find\(sub,start,end\) | 從str字串的start位置到end位置中找到目標字串sub第一次出現的位置，若找不到會回傳-1。 |
+| str.rfind\(sub,start,end\) | 與上相同，但會從字串的右邊開始找。 |
+| str.index\(sub,start,end\) | 與find作用相同，但若找不到會出現錯誤並終止程式。 |
+| str.rindex\(sub,start,end\) | 與上相同，但會從字串的右邊開始找。 |
+| str.count\(sub,start,end\) | 從str字串的start位置到end位置計算目標字串sub的出現次數。 |
+| str.replace\(old,new,count\) | 將str字串的old子字串以new字串取代，但目標取代字串可能會出現很多次，因此count為指定要取代幾次。 |
+| str.startswith\(prefix,start,end\) | 查看從str字串的start位置到end位置是否是以prefix子字串開頭。 |
+| str.endswith\(suffix,start,end\) | 查看從str字串的start位置到end位置是否是以suffix子字串結尾。 |
+| str.split\(sep = None, maxsplit = -1\) | 將str字串以sep進行切割，預設為空白。maxsplit數是指定最多要切幾次，預設為全部切完。 |
+| str.joint\(iterable\) | 將可迭代對象iterable以str字串將其中各元素進行連接，輸出連接後的字串。 |
+| str.capitalize\(\) | 將字串str的首字轉換為大寫。 |
+| str.lower\(\) | 將字串str全轉換為小寫。 |
+| str.upper\(\) | 將字串str全轉換為大寫。 |
+| str.title\(\) | 將字串str中的每個詞的首字轉換為大寫。 |
+| str.islower\(\) | 判斷是否所有字元皆是小寫。 |
+| str.isupper\(\) | 判斷是否所有字元皆是大寫。 |
+| str.istitle\(\) | 判斷字串str的每個詞的首字是否皆為大寫。 |
+
+字串也有提供一些格式對其的方法，整理如下表
+
+| function | description |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| str.center\(width,fillchar\) | 將str字串的總長度限制為width長度，其他非str字串之處補上fillchar，將str字串置中，fillchar預設為空白。 |
+| str.ljust\(width,fillchar\) | 與上相同，但是是將str字串靠左。 |
+| str.rjust\(width,fillchar\) | 與上相同，但是是將str字串靠右。 |
+| str.zfill\(wdith\) | 將字串str的左側補上0，而總長度為width。 |
+| str.expandtabs\(tabsize\) | 將字串str中的tab轉換為tabsize長度的空白。 |
+| str.partition\(sep\) | 將字串str切割為sep前、sep、sep後。 |
+| str.splitlines\(keepends = False\) | 將字串str以\n換行符號進行切割，以串列輸出。當keepends設為True時，則保留換行符號。 |
+
+## 逃脫字元
+
+若想表達一些特殊的字元時，可透過反斜線\來表示逃脫字元，下表為常用的逃脫字元。
+
+| 字元 | 說明 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| \ | 續行號 |
+| \\ | 倒斜線 |
+| \' | 單引號 |
+| \" | 雙引號 |
+| \t | Tab鍵 |
+| \n | 換行 |
+| \a | 響鈴 |
+| \b | 退一格 |
+| \r | 游標返回 |
+

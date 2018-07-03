@@ -178,3 +178,22 @@ for i in range(3):
 由上面幾個代碼可以看出，當不指定步長時，預設為1。  
 而當僅輸入一個數字時，則為指定結束數字，起始數字預設為0，步長預設為1。
 
+### enumerate\(\)方法
+
+當我們在對可迭代序列資料\(list, tuple, string等\)進行迭代時，若想對個別元素建立對應索引時，就可使用到enumerate\(\)方法。
+
+```text
+enumerate(iterable, start = 0)
+```
+
+```text
+a = [1,2,3,'joey']
+for i,j in enumerate(a,1):
+    print(i,j)
+輸出結果：
+1 1
+2 2
+3 3
+4 joey
+```
+
