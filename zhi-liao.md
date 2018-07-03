@@ -159,6 +159,15 @@ True
 print(complex(2) == 2+0j)
 輸出結果：
 True
+
+a = 2+3j #建立複數型態
+print(a.real) #取得實數
+print(a.imag) #取得虛數
+print(a.conjugate()) #取得共軛複數
+輸出結果：
+2.0
+3.0
+(2-3j)
 ```
 
 ## 算數運算符
