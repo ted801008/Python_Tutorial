@@ -19,11 +19,12 @@ print(len('Hello World'))
 11
 #字串長度可透過len()函式來得到
 
-print('H
+print('''
+H
 e
 l
 l
-o World')
+o World''')
 輸出結果：
 H
 e

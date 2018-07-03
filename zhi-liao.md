@@ -192,6 +192,32 @@ print(a.conjugate()) #取得共軛複數
 (2-3j)
 ```
 
+#### 隨機數
+
+ 隨機數的實現可透過導入random模組的以下方法：
+
+| function | description |
+| --- | --- | --- | --- |
+| random.choice\(sequence\) | 從一個序列項目中隨機挑選其中元素 |
+| random.randint\(a,b\) | 從a~b中的數值範圍隨機挑選其中一個整數 |
+| random.random\(\) | 隨機選出從0~1的浮點數 |
+
+```text
+import random #導入模組
+
+print(random.choice('Hello'))#從可迭代的字串序列中隨機挑選元素
+輸出結果：
+H
+
+print(random.randint(0,100))#從0~100隨機挑選整數
+輸出結果：
+98
+
+print(random.random()) #隨機選出0~1的浮點數
+輸出結果：
+0.821719218117871
+```
+
 ## 算數運算符
 
 | 運算符號 | 功用 |
