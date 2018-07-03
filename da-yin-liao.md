@@ -6,10 +6,14 @@
 1. sys.stdout.write\(\)：將指定內容打印於螢幕中，上面的Hello World的程式碼即是透過此方法來顯示出Hello World的。  
 2. print\(\)：此方法其實是調動sys.stdout.write\(\)方法，並在指定內容最後加上換行符號'\n'。
 
-print\(\)的函式架構為如下，可接收多個數值，而sep的是各數值間是以何種內容連結，end的則是顯示內容的最後以何種內容結束。
+print\(\)的函式架構為如下，可接收多個數值，詳細參數描述如下：  
+sep：各數值間是以何種內容連結  
+end：顯示內容的最後以何種內容結束，預設為換行符號。  
+file：預設為sys.stdout代表是一個標準輸出環境\(螢幕\)，亦可指向其他位置。  
+flush：可決定資料先暫存於緩衝區或直接輸出。
 
 ```text
-print(value1, value2, value3, ..., sep=' ', end='\n', file=sys.stdout)
+print(value1, value2, value3, ..., sep=' ', end='\n', file=sys.stdout, flush = False)
 ```
 
 ### 排版
