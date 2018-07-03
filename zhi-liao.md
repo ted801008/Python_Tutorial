@@ -125,6 +125,24 @@ print(float(2))
 #可用float()方法來指定型態
 ```
 
+而若想表達正負無限大等數值亦可做到喔，而想確認其是否為無限大或非數字也可透過isinf\(\)和isnan\(\)兩種方法進行判斷。
+
+```text
+float('inf') #無限大
+float('infinity') #無限大
+float('-inf') #負無限大
+float('-infinity') #負無限大
+float('nan') #Not a Number, 表明為非數字。
+```
+
+float類別也有提供一些內建函數，整理如下表。
+
+| Function | Description |
+| --- | --- | --- | --- |
+| float.fromhex\(x\) | 將16進位的浮點數的字串表示x轉換為10進位的浮點數 |
+| float.hex\(x\) or x.hex\(\) | 將10進位浮點數x轉換為16進位浮點數以字串型態回傳 |
+| float.is\_integer\(\) | 判斷是否為整數 |
+
 #### 複數
 
 可用於表達複數，型態為complex。
