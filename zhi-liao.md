@@ -62,6 +62,39 @@ print(int(d,16))
 10
 ```
 
+每種進位皆有其前輟符號，如二進位為0b, 八進位為0o, 十六進位為0x，但若不想有前面這些前輟符號該怎麼辦呢？  
+  
+這時僅需透過format\(\)函式：
+
+```text
+a = 10
+format(10,'b') #二進位
+format(10,'o') #八進位
+format(10,'x') #十六進位
+輸出結果：
+'1010'
+'12'
+'a'
+```
+
+除此之外，透過print\(\)函式來顯示數字，會自動將其他進位轉換為十進位顯示。
+
+```text
+number_10 = 10
+number_2 = 0b1010
+number_8 = 0o12
+number_16 = 0xa
+print(number_10)
+print(number_2)
+print(number_8)
+print(number_16)
+輸出結果：
+10
+10
+10
+10
+```
+
 #### 布林
 
 可用於表達True與False的數值，型態為bool，bool為int的子類別，0為False，1為True。在Python中，不是0就是True，所以空字串、空串列、None也都為False。
