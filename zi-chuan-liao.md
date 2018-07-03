@@ -247,13 +247,32 @@ print(len(bytes('測試','utf-8')))
 
 | function | description |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| str.center\(width,fillchar\) | 將str字串的總長度限制為width長度，其他非str字串之處補上fillchar，將str字串置中，fillchar預設為空白。 |
+| str.center\(width,fillchar\) | 將str字串的總長度限制為width長度+1，其他非str字串之處補上fillchar，將str字串置中，fillchar預設為空白。 |
 | str.ljust\(width,fillchar\) | 與上相同，但是是將str字串靠左。 |
 | str.rjust\(width,fillchar\) | 與上相同，但是是將str字串靠右。 |
-| str.zfill\(wdith\) | 將字串str的左側補上0，而總長度為width。 |
+| str.zfill\(wdith\) | 將字串str的左側補上0，而總長度為width+1。 |
 | str.expandtabs\(tabsize\) | 將字串str中的tab轉換為tabsize長度的空白。 |
 | str.partition\(sep\) | 將字串str切割為sep前、sep、sep後。 |
 | str.splitlines\(keepends = False\) | 將字串str以\n換行符號進行切割，以串列輸出。當keepends設為True時，則保留換行符號。 |
+
+```text
+a = '-3.14'
+print(a.rjust(10))
+輸出結果：
+ ​    -3.14
+ 
+print(a.ljust(10))
+輸出結果：
+-3.14     
+
+print(a.center(10))
+輸出結果：
+  -3.14   
+
+print(a.zfill(10))
+輸出結果：
+-000003.14
+```
 
 ## 逃脫字元
 
