@@ -168,3 +168,63 @@ print(string2List.split(' '))
 
 > 注意：join\(\)方法所傳入的是可迭代的資料型態便皆可處理，而非僅限於串列。
 
+### 排序
+
+實現串列排序有兩種方法  
+1. 內建函數sorted\(\)
+
+```text
+sorted(iterable,key = None, reverse = False)
+
+iterable為欲被排序的資料
+key為排序的基準，預設為無
+reverse預設為False，代表遞增排序。若要實現遞減僅須將其設為True。
+```
+
+> 事實上，sorted\(\)方法可實施的對象僅要是能夠迭代的皆可，如元組、字串等等
+
+2. 串列物件方法sort\(\)
+
+```text
+list.sort(key = None, reverse = False)
+```
+
+```text
+a = [1,3,2,6,4]
+print(sorted(a))
+print(a)
+print("-"*10)
+a.sort(reverse = True)
+print(a)
+
+輸出結果：
+[1, 2, 3, 4, 6]
+[1, 3, 2, 6, 4]
+--------------------
+[6, 4, 3, 2, 1]
+```
+
+由上述代碼可以看出：  
+內建函數sorted\(\)採用的是複製排序\(copied sorting\)，排序後原串列並不會改變。  
+串列物件函數sort\(\)採用的是就地排序\(in-place sorting\)，排序後原串列便改變了。
+
+## 串列方法
+
+串列有許多物件方法，整理如下表：
+
+| function | description |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| list.append\(x\) | 將x元素加至list的最後 |
+| list.extend\(t\) | 將可迭代物件t拆分後分別加至list |
+| list.insert\(i,x\) | 將元素x插入至list的位置i |
+| list.remove\(x\) | 將一個元素x從list中刪除，與del s\[i\]相同 |
+| list.pop\(i\) | 將位置i的元素刪除並回傳，若未給予則預設刪除最後一個 |
+| list.clear\(\) | 將list清空，與del list\[:\] 相同 |
+| list.reverse\(\) | 將list倒轉 |
+| list.count\(x\) | 計算元素x在list出現的次數 |
+| list.index\(x\) | 回傳元素x在串列第一次出現的位置 |
+
+## 串列生成式
+
+Python有提供生成式\(Comprehension\)方法，他可將多個迭代器合在一起，再以for迴圈實現。
+
