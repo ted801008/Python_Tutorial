@@ -143,6 +143,28 @@ float類別也有提供一些內建函數，整理如下表。
 | float.hex\(x\) or x.hex\(\) | 將10進位浮點數x轉換為16進位浮點數以字串型態回傳 |
 | float.is\_integer\(\) | 判斷是否為整數 |
 
+#### 分數
+
+分數並不屬於數值型別但我們還是來談談要如何實現。  
+答案就是透過fractions模組
+
+```text
+import fractions #導入模組
+a = fractions.Fraction(12,18) #建立分子12分母18的分數
+print(a)
+print(a.numerator)
+print(a.denominator)
+b = fractions.Fraction(4,30)
+print(a+b) #可以與其他分數進行運算
+print(float(a+b)) #並可透過float()函式轉換為浮點數型態
+輸出結果：
+2/3
+2
+3
+4/5
+0.8
+```
+
 #### 複數
 
 可用於表達複數，型態為complex。
