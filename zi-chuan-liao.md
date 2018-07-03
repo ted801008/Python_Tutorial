@@ -161,6 +161,26 @@ TypeError: 'str' object does not support item assignment
 # 由上例即可看出字串是不容許被改變的。
 ```
 
+#### 切片slice\(\)方法
+
+為何要特別介紹這個方法呢？  
+因為在我們之後要維護很大型的系統時，若總是在那邊切片到某個特定的索引值，程式碼就會看起來很亂，而後面維護的人也會很難看懂你的代碼。  
+這時若想達到切片的效果而又要避免這種狀況時，就得使用slice\(\)方法了。
+
+```text
+slice(start,stop,step=1)
+```
+
+```text
+officer_info = ['joey',12,'student',82]
+name = slice(0,1,1)
+print(officer_info[name])
+輸出結果：
+['joey']
+```
+
+由上面代碼就可以看到，即便我現在使用切片，但後續維護的人就會看到我建立的切片變數name，就可以了解我這邊是想取得姓名資訊了。
+
 ### Unicode字串
 
 在Python2中，字串預設是以ASCII編碼儲存。  
