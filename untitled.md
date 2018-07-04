@@ -80,9 +80,9 @@ $ vi ~/.bash_profile
 
 當安裝完Anaconda後，我們就可以來編寫Python囉~
 
-#### 直譯器
+#### 終端機互動介面
 
-Python直譯器的開啟方法為，開啟終端機輸入Python，如下圖可以看到若建置安裝完Anaconda後，就會出現Anaconda的字眼。
+終端機互動介面的開啟方法為，開啟終端機輸入Python，如下圖可以看到若建置安裝完Anaconda後，就會出現Anaconda的字眼。
 
 ```text
 $ Python
