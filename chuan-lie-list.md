@@ -226,5 +226,63 @@ print(a)
 
 ## 串列生成式
 
-Python有提供生成式\(Comprehension\)方法，他可將多個迭代器合在一起，再以for迴圈實現。
+Python有提供生成式\(Comprehension\)方法，他可將多個迭代器合在一起，再以for迴圈實現。而也因串列是一種較為自由的資料儲存形式，因此Python也有特別為其提供特別的方法-串列生成式\(List Comprehension\)。  
+具體實現的如下代碼
+
+```text
+[item for item in iterable]
+[item for item in iterable if item condition]
+```
+
+```text
+a = [i for i in range(10)]
+b = [i**2 for i in range(10) if i%2==0]
+print(a)
+print(b)
+輸出結果：
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 4, 16, 36, 64]
+```
+
+看起來跟過去我們用if-else、迴圈等來建立目標串列差不多啊，那為何我們還需要用串列生成式呢？  
+原因為較為效率、代碼較簡潔。
+
+```text
+score = [[65,77,84],[46,99,27,50],[88,87,65,67,68]]
+average = [sum(i)/len(i) for i in score]
+print(average)
+輸出結果：
+[75.33333333333333, 55.5, 75.0]
+# 如此可以一行解決
+
+average = []
+for i in score:
+    average.append(sum(i)/len(i))
+print(average)
+輸出結果：
+[75.33333333333333, 55.5, 75.0]
+# 這是不使用串列生成式的做法，達到的效果皆是一樣的
+```
+
+```text
+# 亦可搭配格式化字串
+name = ['joey','kobe','michael','lebron']
+print('\n'.join(["{0:9s}{1:9d}".format(item,len(item)) for item in name]))
+輸出結果：
+joey             4 
+kobe             4 
+michael          7 
+lebron           6
+```
+
+#### 兩個串列併以串列生成式
+
+```text
+name = ['joey','kobe']
+cake = ['chocolate','strawberry','banana','watermelon']
+allocate = [(i,j) for i in name for j in cake]
+print(allocate)
+輸出結果：
+[('joey', 'chocolate'), ('joey', 'strawberry'), ('joey', 'banana'), ('joey', 'watermelon'), ('kobe', 'chocolate'), ('kobe', 'strawberry'), ('kobe', 'banana'), ('kobe', 'watermelon')]
+```
 
