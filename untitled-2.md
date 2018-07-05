@@ -260,6 +260,15 @@ dict_items([('a', 1), ('b', 2), ('c', 3)])
 
 ## 內建函式
 
+| function | description |
+| --- | --- | --- | --- | --- | --- | --- |
+| dict.get\(key,default\) | 回傳指定key的相應值，若找不到則回傳default值，預設為None  |
+| dict.setdefault\(key,default\) | 回傳指定key的相應值，若找不到則新增該鍵，新增預設為default，預設為None |
+| dict.pop\(key, default\) | 依鍵所對應的值作刪除並回傳，若無該鍵，則回傳None |
+| dict.update\(x\) | 以新的鍵值對x來新增至字典 |
+| dict.clear\(\) | 清空字典 |
+| dict.copy\(\) | 以淺複製來複製字典 |
+
 ### fromkeys\(\)
 
 fromkeys\(\)是Python字典所提供的類別方法，主要功用是先將序列型資料拆分成key，再以\[ \]運算子填入相應值。
