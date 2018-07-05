@@ -224,20 +224,6 @@ None
 {'a': 1, 'b': 2, 'c': 3, 'd': None}
 ```
 
-    使用collections模組的defaultdict，設定預設值。
-
-```text
-import collections
-a = collections.defaultdict(list) #預設以空串列儲存
-a['1'] = 1
-a['2'] = 2
-print(a['1'])
-print(a['3'])
-輸出結果：
-1
-[]
-```
-
 ### 取得所有鍵值對/鍵/值
 
 ```text
@@ -361,5 +347,123 @@ print({k:v for k,v in grade.items() if(v%2==0 and v%3==0)})
 留下分數同時為2和3的倍數：
 {'joey': 54, 'michael': 66}
 # 搭配條件式
+```
+
+## collections模組
+
+collections模組有提供許多字典的子類別的其他種類字典，這邊要介紹兩種常用的字典：預設字典\(defaultdict\)、順序字典\(OrderedDict\)。
+
+### 預設字典\(defaultdict\)
+
+預設字典是一種自動配鍵的字典，定義如下：
+
+```text
+defaultdict([default_factory])
+```
+
+default\_factory為預設工廠函式。  
+「工廠函式」\(factory function\)指的是當函式被呼叫後，會以特定型別的物件回傳，Python的內建資料型別\(Built-in Function\)皆可視為工廠函式。
+
+```text
+import collections
+a = collections.defaultdict(list) #預設以空串列儲存
+a['1'] = 1
+a['2'] = 2
+print(a['1'])
+print(a['3'])
+輸出結果：
+1
+[]
+```
+
+### 有序字典\(OrderedDict\)
+
+標準字典是無順序性的，有序字典\(OrderedDict\)會記住插入項目的順序。
+
+```text
+OrderedDict([items])
+# items為欲插入的項目
+```
+
+```text
+import collections
+a = collections.OrderedDict()
+a['a'] = 1
+a[0] = 2
+print(a)
+輸出結果：
+OrderedDict([('a', 1), (0, 2)])
+# OrderedDict會記住插入項目的順序
+
+b = collections.OrderedDict(zip(['a',0],[1,2]))
+print(b)
+輸出結果：
+OrderedDict([('a', 1), (0, 2)])
+#可搭配zip()函式
+
+c = collections.OrderedDict({'a':1,0:2})
+print(c)
+輸出結果：
+OrderedDict([('a', 1), (0, 2)])
+```
+
+#### OrderedDict內建函式
+
+OrderedDict屬於字典的子類別，所以字典的方法函式也都可以用。而除此之外，OrdereDict還有提供其他方法，如下介紹：
+
+| function | description |
+| --- | --- | --- |
+| popitem\( last = True\) | 刪除項目並回傳，若last指定為True則刪除最後一個元素\(鍵-值\);若指定為False則刪除第一個元素。 |
+| move\_to\_end\(key, last = True\) | 將指定鍵值對進行移動，若last指定為True，則將其移動至最後;若指定為False，則移動至第一個。 |
+
+```text
+import collections
+a = collections.OrderedDict()
+a['A'] = 0
+a['B'] = 1
+a['C'] = 2
+a['D'] = 3
+
+a.move_to_end('A')
+print(a)
+輸出結果：
+OrderedDict([('B', 1), ('C', 2), ('D', 3), ('A', 0)])
+
+a.move_to_end('A',last = False)
+print(a)
+輸出結果：
+OrderedDict([('A', 0), ('B', 1), ('C', 2), ('D', 3)])
+
+print('刪除最後一個：',a.popitem())
+print(a)
+輸出結果：
+刪除最後一個： ('D', 3)
+OrderedDict([('A', 0), ('B', 1), ('C', 2)])
+
+print('刪除第一個：',a.popitem(last = False))
+print(a)
+輸出結果：
+刪除第一個： ('A', 0)
+OrderedDict([('B', 1), ('C', 2)])
+```
+
+## 字典排序
+
+字典屬於無序型資料型態，但有時我們還是希望他能夠排序一下，而所能排序的基準也有兩種選擇，分別是「鍵」與「值」。
+
+```text
+from collections import OrderedDict
+a = {'Joey':65,'Kobe':88,'Jordan':76,'Lebron':90,'Jane':79}
+print('以鍵排序：')
+print(OrderedDict(sorted(a.items(),key = lambda item: item[0])))
+輸出結果：
+以鍵排序：
+OrderedDict([('Jane', 79), ('Joey', 65), ('Jordan', 76), ('Kobe', 88), ('Lebron', 90)])
+
+print('以值排序：')
+print(OrderedDict(sorted(a.items(),key = lambda item: item[1])))
+輸出結果：
+以值排序：
+OrderedDict([('Joey', 65), ('Jordan', 76), ('Jane', 79), ('Kobe', 88), ('Lebron', 90)])
 ```
 
