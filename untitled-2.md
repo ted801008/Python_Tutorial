@@ -317,3 +317,49 @@ job:soldier
 
 > 「拆解映射」即是將映射型別轉換為關鍵字引數\(key=value\)形式。
 
+## 字典生成式
+
+生為一個常常被使用的資料型態，Python亦有為其提供生成式，稱為字典生成式\(Dictionary Comprehension\)。
+
+大致的使用方式如下定義：
+
+```text
+{key運算式:value運算式 for key,value in iterable}
+{key運算式:value運算式 for key,value in iterable if 條件式}
+```
+
+```text
+a = {'a':1,'b':2,'c':3}
+reverse_a = {value:key for key,value in a.items()}
+print(reverse_a)
+輸出結果：
+{1: 'a', 2: 'b', 3: 'c'}
+# 可透過字典生成式來反轉鍵-值對。
+
+b = {key:value for key,value in enumerate(['我','喜歡','吃','飯'])}
+print(b)
+輸出結果：
+{0: '我', 1: '喜歡', 2: '吃', 3: '飯'}
+# 搭配enumerate和字典生成式建立字典
+```
+
+```text
+key = ['key1','key2','key3']
+value = [1,2,3]
+a = {i:j for i,j in zip(key,value)}
+print(a)
+輸出結果：
+{'key1': 1, 'key2': 2, 'key3': 3}
+# 搭配zip()和字典生成式來建立字典
+```
+
+```text
+grade = {'joey':54,'kobe':89,'lebron':76,'michael':66,'jane':99}
+print('留下分數同時為2和3的倍數：')
+print({k:v for k,v in grade.items() if(v%2==0 and v%3==0)})
+輸出結果：
+留下分數同時為2和3的倍數：
+{'joey': 54, 'michael': 66}
+# 搭配條件式
+```
+
