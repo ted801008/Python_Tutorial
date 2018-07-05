@@ -2,12 +2,50 @@
 
 集合屬於一種無序資料型別，其會直接刪除重複的項目，因此不支援索引、切片等運算。Python的集合\(set\)提供兩個類別：set與fronzenset。
 
-| set | fronzenset |
+| set | frozenset |
 | --- | --- | --- | --- | --- |
 | 可變Mutable | 不可變Immutable，大小為固定的 |
-| 無雜湊 | 可雜湊  |
+| 無雜湊Hashable | 可雜湊Unhashable |
 | 不能作為字典的key | 能作為字典的key |
 | 不可當作另一個集合的元素 | 可當作另一個集合的元素 |
+
+> float、int、str、tuple、frozenset皆為Hashable，皆能加入至集合中。  
+> 字典的鍵值與集合中的元素皆須為Hashable。  
+> 可用內建函式issubclass\(\)來判別是否為Hashable
+
+```text
+issubclass(class,classinfo)
+```
+
+> class為要確認的子類別  
+> classinfo為類別名稱
+
+> 下述代碼為判斷set與frozenset是否為可雜湊\(Hashable\)
+
+```text
+from collections.abc import Hashable
+print(issubclass(set,Hashable))
+print(issubclass(frozenset,Hashable))
+輸出結果：
+False
+True
+```
+
+> 也可依內建函式hash\(\)來取得某物件的雜湊值。
+
+```text
+a = 'Joey'
+b = frozenset((1,2))
+c = list((1,2))
+print(hash(a))
+print(hash(b))
+print(hash(c))
+輸出結果：
+-466291389351934684
+-1834016341293975159
+TypeError: unhashable type: 'list'
+#因為串列屬於Unhashable，所以不能取得雜湊值。
+```
 
 ## 集合\(Set\)宣告
 
