@@ -169,15 +169,73 @@ print(d8)
 # 使用clear()函式，會直接清空該字典。
 ```
 
-### 檢查是否存在
+### 找不到key怎摸辦？
 
-檢查字典中是否存在特定鍵
+當我們依某特定鍵來從字典取得值時，但卻找不到時會發生什麼狀況呢？ 
 
 ```text
+a = {"a":1,"b":2,"c":3}
+print(a['d'])
+輸出結果：
+KeyError: 'd'
+```
+
+紅明顯就會出現KeyError的錯誤導致程式終止。  
+很顯然，我們並不希望有這等事發生，這時候該如何防止呢？  
+以下提供幾種方式：
+
+1. 檢查字典中是否存在特定鍵
+
+    使用成員運算子判斷。
+
+```text
+# in, not in
 d9 = {"a":1,"b":2,"c":3}
 print('a' in d9)
+print('d' not in d9)
 輸出結果：
 True
+True
+```
+
+    使用字典物件方法get\(\)，當找不到鍵值時會回傳None，而不會引發錯誤。
+
+```text
+#get()方法
+a = {"a":1,"b":2,"c":3}
+print(a.get('a'))
+print(a.get('d'))
+輸出結果：
+1
+None
+```
+
+    使用字典物件方法setdefault\(\)方法，若存在該鍵，則回傳該對應值。無該鍵時，  
+    會自動新增該鍵，對應值則以None儲存。
+
+```text
+a = {"a":1,"b":2,"c":3}
+print(a.setdefault('a'))
+print(a.setdefault('d'))
+print(a)
+輸出結果：
+1
+None
+{'a': 1, 'b': 2, 'c': 3, 'd': None}
+```
+
+    使用collections模組的defaultdict，設定預設值。
+
+```text
+import collections
+a = collections.defaultdict(list) #預設以空串列儲存
+a['1'] = 1
+a['2'] = 2
+print(a['1'])
+print(a['3'])
+輸出結果：
+1
+[]
 ```
 
 ### 取得所有鍵值對/鍵/值
@@ -199,4 +257,54 @@ print(d10.items())
 dict_items([('a', 1), ('b', 2), ('c', 3)])
 # 得到所有鍵值對
 ```
+
+## 內建函式
+
+### fromkeys\(\)
+
+fromkeys\(\)是Python字典所提供的類別方法，主要功用是先將序列型資料拆分成key，再以\[ \]運算子填入相應值。
+
+```text
+fromkeys(seq,[, value])
+```
+
+seq為傳入的序列型資料  
+value為選擇性參數，若未傳入，則預設以None
+
+```text
+a = {}.fromkeys('Joey','haha')
+b = {}.fromkeys([1,2,3])
+print(a)
+print(b)
+輸出結果：
+{'J': 'haha', 'o': 'haha', 'e': 'haha', 'y': 'haha'}
+{1: None, 2: None, 3: None}
+```
+
+### locals\(\)
+
+Python所提供的內建函式locals\(\)會確認目前有效範圍的區域變數，並將這些變數以字典形式回傳，變數名稱會以「鍵」儲存，變數值則會以相應「值」儲存。
+
+```text
+name = 'Joey'; age = 25; job = 'soldier'
+print(locals())
+輸出結果：
+{'name': 'Joey', 'age': 25, 'job': 'soldier', '__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>}
+```
+
+可以看到除了我們所建立的變數外，還有許多其他內建預設的變數等等。  
+  
+但所回傳的變數真的太多了，若我們只想取出我們所建立的變數該如何是好呢？  
+這時就得依靠format\(\)和拆解映射「\*\*」\(Mapping unpacking\)了，具體如下：
+
+```text
+name = 'Joey'; age = 25; job = 'soldier'
+print("name:{name}\nage:{age}\njob:{job}".format(**locals()))
+輸出結果：
+name:Joey
+age:25
+job:soldier
+```
+
+> 「拆解映射」即是將映射型別轉換為關鍵字引數\(key=value\)形式。
 
