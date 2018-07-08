@@ -148,6 +148,25 @@ title:龍
 # 可以看到即便是傳入的順序不一樣，還是可以匹配的到。
 ```
 
+但要注意的是與位置參數的搭配
+
+```text
+def func1(name,title):
+    print('name:',name)
+    print('title:',title)
+
+func1('龍',title='Joey')
+執行結果：
+name: 龍
+title: Joey
+# 第一個位置參數'龍'，會對應到名為name的形式參數。
+
+func1('Joey',name = '龍')
+執行結果：
+-bash: syntax error near unexpected token `'Joey',name'
+# 這樣就會產生錯誤，因為第一個位置參數'Joey'會對應到name的形式參數，但後面又給予一次name形式參數的值。
+```
+
 #### 默認參數
 
 可在宣告函式時，給予參數默認值，當呼叫函式而未給值，則會使用默認參數。
