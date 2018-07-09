@@ -343,7 +343,46 @@ Python會以LEGB的規則去查找變數，一開始會到局部作用域\(Local
 
 在Python中，只有模塊\(module\)、類別\(class\)、函式\(def,lambda\)才會建立新的作用域，其於代碼則不會引入新的作用域。
 
+依這種概念去想以下代碼
+
+```text
+name = 'joey'
+def func():
+    print(name)
+    name = 'kobe' #改變全域變數
+
+func()
+執行結果：
+UnboundLocalError: local variable 'name' referenced before assignment
+#因為python會以LEGB的方式去找變數，區域變數name在指派前已給值，因此產生混亂。
+
+name = 'joey'
+def func2():
+    name = 'kobe' #區域變數
+    print(name)
+print(name)
+執行結果：
+kobe
+joey
+
+
+name = 'joey'
+def func3():
+    global name #以global關鍵字宣告其為全域變數
+    print(name)
+    name = 'kobe'
+    print(name)
+func3()
+print(name)
+執行結果：
+joey
+kobe
+kobe
+```
+
 #### 局部作用域\(Local\)
+
+適用於所宣告的函式或流程控制的代碼塊，離開範圍即會結束生命週期。
 
 ```text
 def func():
@@ -366,6 +405,8 @@ def funcOutter():
 ```
 
 #### 全局作用域
+
+適用於整個程式檔\(\*.py\)
 
 ```text
 a = 1
