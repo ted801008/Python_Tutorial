@@ -311,7 +311,7 @@ func4(1,2,3,4,a=1,b=2,c=3)
 
 匿名函式在Python中是一個很特別的函式，其不用以def來建構標準的函式，僅需使用lambda來建構表達式，相較於建構標準的def函式，較為簡潔。
 
-def函式的主體為代碼塊，而匿名函式的主體則只是一個包含有限邏輯的表達式，其擁有自己的命名空間，而不能使用自己參數列表以外的參數，全局參數亦不行。
+def函式的主體為代碼塊，而匿名函式的主體則只是一個包含有限邏輯的表達式，其擁有自己的命名空間，而不能使用自己參數列表以外的參數，全局參數亦不行，且不能使用return語句。
 
 建立方式如下：
 
@@ -329,6 +329,45 @@ a = [(lambda x:x*x)(x) for x in range(10)]
 print(a)
 執行結果：
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
+
+lambda可與排序函式，作為排序的key。
+
+```text
+a = [('joey',123,20),('kobe',131,49),('lebron',521,31)]
+stkey = lambda x:x[0]
+a.sort(key = stkey)
+print(a)
+執行結果：
+[('joey', 123, 20), ('kobe', 131, 49), ('lebron', 521, 31)]
+
+b = [('joey',123,20),('kobe',131,49),('lebron',521,31)]
+b.sort(key = lambda x:x[0])
+print(b)
+執行結果：
+[('joey', 123, 20), ('kobe', 131, 49), ('lebron', 521, 31)]
+```
+
+或與filter\(\)函式搭配，filter\(\)函式的定義如下
+
+```text
+filter(function,iterable)
+```
+
+function參數表示要傳入一個函式  
+iterable：可迭代元素  
+而filter\(\)函式會將傳入的可迭代元素根據function參數的設定進行過濾，其會取得回傳True的元素並將回傳False的元素去除，以序列型資料組成。
+
+```text
+def func(x):
+    if(x*1.5>10):
+        return x
+lt = range(10)
+print(list(filter(func,lt)))
+執行結果：
+[7,8,9]
+
+print(list(filter(lambda x:x*1.5>10,lt)))
 ```
 
 ## 變數作用域
@@ -395,6 +434,8 @@ NameError: name 'a' is not defined
 
 #### 嵌套函式\(閉包\)作用域\(Enclosing\)
 
+嵌套函式亦稱為內部函式或區域函式\(Local function\)或巢狀函式\(Nested function\)，即在某函式中定義的另一個函式。
+
 ```text
 def funcOutter():
     print('嵌套函數作用域')
@@ -403,6 +444,20 @@ def funcOutter():
 
 # 如上例，funcInner()函式內為局部作用域，而funcOutter()函式則為嵌套函式作用域。
 ```
+
+Python亦可基於這個概念，將多個函式進行鞣製\(Curry\)。
+
+```text
+def outside(x):
+    def inner(y):
+        print(divmod(x,y))
+    return inner
+outside(18)(4)
+執行結果：
+(4,2)
+```
+
+正常情況下，變數x的實際引數在outside函式被執行完後即會失效，但通過將變數x給予inner\(\)函式使用，outside\(\)函式形成了閉包\(Closure\)，只要還有變數被inner\(\)函式使用，則變數x就會被保存。
 
 #### 全局作用域
 
@@ -452,5 +507,40 @@ def func1():
 func1()
 執行結果：
 1
+```
+
+再來看看這個例子
+
+```text
+def func2(total):
+    def addNum(item,step):
+        for i in range(1,item+1,step):
+            total+=i
+        return total
+    return addNum
+
+adder = func2(0)
+print(adder(10,2))
+執行結果:
+UnboundLocalError: local variable 'total' referenced before assignment
+```
+
+會發現會產生錯誤，這個原因是什麼呢？原因就在於addNum\(\)函式僅能對閉包函式func的total變數進行讀取動作，而無法進行a+=b這樣的指派動作。
+
+遇到這種狀況該如何是好呢？其實僅需透過nonlocal關鍵字的宣告即可，宣告他為閉包函式的變數，便能在addNum\(\)函式重指派值。
+
+```text
+def func2(total):
+    def addNum(item,step):
+        nonlocal total
+        for i in range(1,item+1,step):
+            total+=i
+        return total
+    return addNum
+
+adder = func2(0)
+print(adder(10,2))
+執行結果：
+25
 ```
 
