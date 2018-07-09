@@ -212,7 +212,9 @@ func2('Kobe')
 
 #### 不定長參數
 
-當所傳入的參數數量是不定時，則可使用不定長參數，定義不定長參數僅需在該參數前加上星號\(\*\)。
+當所傳入的參數數量是不定時，則可使用不定長參數。不定長參數有兩種：
+
+1. \*星號運算式：配合元組tuple物件來蒐集不定長的實際引數，主要就是利用元組的unpacking運算。註：而在Python3後，還可將關鍵字引數置於\*星號參數之後。
 
 ```text
 def func(name,email,*other):
@@ -235,8 +237,74 @@ Name: Kobe
 Total_Score: 95.6
 Eamil: kobe@gmail.com
 
-# 可以看到在定義參數時，僅需在該參數前加上星號*，即可將其定義為不定長參數。
+# 可以看到在定義參數時，僅需在該參數前加上星號*，即可將其定義。
 # 在每次呼叫函式時，可給予不同數量的值。
+
+def func2(name,email,*star,additional):
+    print(name,email,star,additional)
+
+func2('joey','joey@gmail.com',90,20,30,additional = 50)
+執行結果：
+joey joey@gmail.com (90, 20, 30) 50
+
+func2('joey','joey@gmail.com',90,20,30,50)
+執行結果：
+TypeError: func2() missing 1 required keyword-only argument: 'additional'
+#但注意在其後的參數必須以關鍵字引數傳入，否則會產生錯誤。
+```
+
+\*運算子還可用於拆解可迭代物件，應用於實際引數。
+
+```text
+def func3(n1,n2,n3,n4,n5):
+    print(n1,n2,n3,n4,n5)
+    
+func3(1,2,*range(3,10))
+執行結果：
+1 2 3 4 5
+```
+
+    2. \*\*雙星運算式：搭配字典物件來蒐集關鍵字引數。
+
+```text
+def func3(name,email,**star):
+    print(name,email,star)
+
+func3('joey','joey@gmail.com',a = 1,b = 2,c = 3)
+執行結果：
+joey joey@gmail.com {'a': 1, 'b': 2, 'c': 3}
+```
+
+同樣地，\*\*運算子亦可用於拆解映射物件，應用於實際引數，鍵\(key\)作為形式參數名，用其接收對應的映射物件的值。
+
+```text
+def func4(a,b,c,x,y,z):
+    print(a,b,c)
+    print(x,y,z)
+
+data = dict(x=4,y=5,z=6)
+func4(1,2,3,**data)
+執行結果：
+1 2 3
+4 5 6
+
+data = dict(a=4,b=5,c=6)
+func4(1,2,3,**data)
+執行結果：
+TypeError: func4() got multiple values for argument 'a'
+# 但要記得參數名與鍵名必須一樣，否則會對應不到。
+```
+
+\*與\*\*運算式可以兩個一起搭配使用
+
+```text
+def func4(*star,**dstar):
+    print(star,'\n',dstar)
+
+func4(1,2,3,4,a=1,b=2,c=3)
+執行結果：
+(1, 2, 3, 4) 
+ {'a': 1, 'b': 2, 'c': 3}
 ```
 
 ## 匿名函式
