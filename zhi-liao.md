@@ -197,10 +197,15 @@ print(a.conjugate()) #取得共軛複數
  隨機數的實現可透過導入random模組的以下方法：
 
 | function | description |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | random.choice\(sequence\) | 從一個序列項目中隨機挑選其中元素 |
 | random.randint\(a,b\) | 從a~b中的數值範圍隨機挑選其中一個整數 |
 | random.random\(\) | 隨機選出從0~1的浮點數 |
+| random.randrange\(start,end,step\) | 隨機從指定範圍中挑選一個隨機數 |
+| random.sample\(seq,k\) | 從序列中隨機挑選k個元素 |
+| random.shuffle\(seq,\[,random\]\) | 將序列隨機打亂 |
+| random.seed\(a = None, version = 2\) | 初始化亂數種子，之後該亂數便會固定 |
+| random.uniform\(a,b\) | 從指定範圍中挑選出隨機浮點數 |
 
 ```text
 import random #導入模組
@@ -216,6 +221,37 @@ print(random.randint(0,100))#從0~100隨機挑選整數
 print(random.random()) #隨機選出0~1的浮點數
 輸出結果：
 0.821719218117871
+
+print(random.randrange(10,30,2))
+執行結果：
+22
+
+a = [1,2,3,4,5,6,7]
+random.shuffle(a)
+print(a)
+執行結果：
+[4, 5, 6, 1, 3, 2, 7]
+
+a = [1,2,3,4]
+print(random.sample(4))
+print(random.sample(4))
+執行結果：
+[1, 3, 2]
+[1, 4, 3]
+# 在第二次sample時，尚未被選取的會有較高的優先度。
+
+random.seed(1)
+print(random.random())
+random.seed(1)
+print(random.random())
+執行結果：
+0.13436424411240122
+0.13436424411240122
+# 亂數被固定
+
+print(random.uniform(1,10))
+執行結果：
+9.603368968242952
 ```
 
 ## 算數運算符
