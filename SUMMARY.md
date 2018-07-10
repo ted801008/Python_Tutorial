@@ -20,4 +20,5 @@
 * [迭代器與生成器](dai-qi-sheng-cheng-qi.md)
 * [日期與時間](ri-qi.md)
 * [遞迴](undefined-2.md)
+* [函式庫與模組](han-shi-mo.md)
 
